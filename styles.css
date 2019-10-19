@@ -7,3 +7,83 @@
 	vertical-align: baseline;
   box-sizing: border-box;
 }
+
+body {
+  background-color: grey;
+  position: relative;
+  width: 100vw; height: 100vh;
+}
+
+#shelf {
+  background-color: white;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  overflow: scroll;
+}
+
+.book-card {
+  background-color: #eee;
+  width: 10em; min-height: 10em;
+  margin: 1em;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  -webkit-box-shadow: 0px 0px 3px 3px #999;
+  box-shadow: 0px 0px 3px 3px #999;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  overflow: visible;
+}
+
+.read-book {
+  background: #EBFDFF;
+  background: -webkit-radial-gradient(center, #EBFDFF 0%, #FFFFFF 100%);
+  background:    -moz-radial-gradient(center, #EBFDFF 0%, #FFFFFF 100%);
+  background:         radial-gradient(center, #EBFDFF 0%, #FFFFFF 100%);
+}
+
+.book-title {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-variant: small-caps;
+}
+
+.horizontal-rule {
+  background-color: #CCC;
+  width: 90%; height: 1px;
+  display: block;
+  margin: 0 auto;
+}
+
+.book-button {
+  display: block;
+  margin: 0.5em auto;
+  padding: 0 1em;
+  font-variant: small-caps;
+}
+
+.pink-background {background-color: pink;}
+
+#new-book-button {
+  background-color: #EBFDFF;
+  position: absolute;
+  right: 5%; bottom: 5%;
+  width: 3em; height: 3em;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.5);
+  font-size: 30px;
+  text-align: center;
+}
+.cyan-background {background-color: #EBFDFF;}
+.field {
+  width: 80%;
+  display: block;
+  margin: 0.5em auto;
+}
