@@ -50,15 +50,15 @@ function makeBook(i, shelfDiv) {
     let bookDiv = document.createElement("div");
     bookDiv.classList.add("book-card");
     bookDiv.addEventListener("click", () => {
-        book.read = (book.read === "t") ? "f" : "t";
-        if (book.read === "t") {
+        book._read = (book._read === "t") ? "f" : "t";
+        if (book._read === "t") {
             bookDiv.classList.add("read-book");
         } else {
             bookDiv.classList.remove("read-book");
         }
         updateLibrary();
     });
-    if (book.read === "t") {
+    if (book._read === "t") {
         bookDiv.classList.add("read-book");
     }
 
