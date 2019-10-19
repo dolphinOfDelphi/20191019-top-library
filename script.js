@@ -50,15 +50,15 @@ function makeBook(i, shelfDiv) {
     let bookDiv = document.createElement("div");
     bookDiv.classList.add("book-card");
     bookDiv.addEventListener("click", () => {
-        book.read = !book.read;
-        if (book.read) {
+        book.read = (book.read === "t") ? "f" : "t";
+        if (book.read === "t") {
             bookDiv.classList.add("read-book");
         } else {
             bookDiv.classList.remove("read-book");
         }
         updateLibrary();
     });
-    if (book.read) {
+    if (book.read === "t") {
         bookDiv.classList.add("read-book");
     }
 
@@ -111,6 +111,11 @@ newBookButton.addEventListener("click", () => {
     newBookPages.type = "number";
     newBookPages.placeholder = "pages";
     newBookPages.classList.add("field");
+    let readCheckbox = document.createElement("input");
+    readCheckbox.type = "checkbox";
+    let readLabel = document.createElement("p");
+    readLabel.textContent = "read";
+    readLabel.classList.add("read-label");
 
     let cancelButton = document.createElement("button");
     cancelButton.textContent = "cancel";
@@ -125,13 +130,16 @@ newBookButton.addEventListener("click", () => {
     submitButton.addEventListener("click", () => {
         library.push(new Book(newBookTitle.value,
             newBookAuthor.value,
-            newBookPages.valueAsNumber));
+            newBookPages.valueAsNumber,
+            readCheckbox.checked ? "t" : "f"));
         shelfDiv.appendChild(makeBook(library.length - 1, shelfDiv));
         shelfDiv.removeChild(newBookDiv);
         updateLibrary();
     });
 
-    newBookDiv.append(newBookTitle, newBookAuthor, newBookPages, cancelButton, submitButton);
+    newBookDiv.append(newBookTitle, newBookAuthor, newBookPages,
+        readCheckbox, readLabel,
+        cancelButton, submitButton);
     shelfDiv.appendChild(newBookDiv);
     newBookDiv.scrollIntoView(true);
 });
